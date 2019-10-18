@@ -57,20 +57,26 @@ $(document).ready(function(){
 var correctAnswers = 0;
 var inCorrectAnswers = 0;
 var unAnswered = 0;
-var timeRemaining = 120;
+var timeRemain = 120;
 var intervalId;
 var correct;
 var question;
 var option;
 var value;
 
+function timeRemaining(){
+    $(".timeRemaining").text("Time Remaining :" + timeRemain );
+    timeRemain--;
+}
+
 function startGame(){
     $(".start").remove();
     correctAnswers = 0;
     inCorrectAnswers = 0;
     unAnswered = 0;
-    timeRemaining = 120;
-    
+    timeRemain = 120;
+    intervalId = setInterval(timeRemaining, 1000);
+    console.log(timeRemain);
     for(var i=0; i<myQuestions.length; i++){
         question = $("<p style='font-size: 1.5em'>" + myQuestions[i].question + "</p>");
         $("#questions").append(question);
@@ -81,6 +87,7 @@ function startGame(){
           
         }
     }
+   
    
 }
 
