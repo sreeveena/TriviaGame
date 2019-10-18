@@ -61,6 +61,9 @@ var timeRemaining = 120;
 var intervalId;
 var correct;
 var question;
+var option;
+var value;
+
 function startGame(){
     $(".start").remove();
     correctAnswers = 0;
@@ -68,13 +71,14 @@ function startGame(){
     unAnswered = 0;
     timeRemaining = 120;
     
-    // $("#questions").text(myQuestions[0].question);
     for(var i=0; i<myQuestions.length; i++){
         question = $("<p style='font-size: 1.5em'>" + myQuestions[i].question + "</p>");
         $("#questions").append(question);
         for( var j=0; j< myQuestions[i].answers.length; j++){
-            option = $("<input type='radio' name='option"+j+"'>" + myQuestions[i].answers[j]);
-            $("#questions").append(option);
+            option = $("<input type='radio' name='option"+i+"' value= '"+myQuestions[i].answers[j]+"'>");
+            value = $( "<p class='answer'>" + myQuestions[i].answers[j] +"</p>");
+            $("#questions").append(option, value);
+          
         }
     }
    
