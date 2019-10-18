@@ -1,7 +1,9 @@
+/* html body dimensions */
 body{
     background: url("../images/pixar.jpg") no-repeat;
     background-size: 1160px 1060px;
 }
+/* main class dimensions with argin, padding and background */
 .main{
     width:900px;
     height: auto;

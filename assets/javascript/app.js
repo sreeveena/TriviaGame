@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    //varriable decleration with array of objects which are questions, options for answer and the correct answer.
     var myQuestions = [
         {
             question: "In A Bug's Life, the bugs that Flik mistakes for warriors actually worked where?",
@@ -53,18 +54,29 @@ $(document).ready(function(){
 
 
     ];
-
+//variable correctAnswers will have number of correct answers a user has got in the trivia
 var correctAnswers = 0;
+//variable inCorrectAnswers will have number of  in correct answers a user has got in the trivia
 var inCorrectAnswers = 0;
+//variable unAnswered will have number of un answered questions a user has got in the trivia
 var unAnswered = 0;
+//variable to set time for the trivia
 var timeRemain = 120;
+//variable to set the time
 var intervalId;
+//
 var correct;
+//variable question is to generate the question after start button is clicked
 var question;
+//variable option is to generate the radio button options for answers after start button is clicked
 var option;
 var value;
+//variable Done button to exit the trivia questions before the timer come to zero.
 var doneButton;
 
+//function timeRemaining will set the time in html timeRemaining class 
+    //reducea the time every one second.
+    //clears time if the timer reaches to 0 and calls the function timer.
 function timeRemaining(){
     $(".timeRemaining").text("Time Remaining :" + timeRemain );
     timeRemain--;
@@ -74,6 +86,11 @@ function timeRemaining(){
     }
 }
 
+//function startGame will remove start button on click of html with  class= start and will reveal the trivia questions and options for answers
+//set the values correctAnswers, inCorrectAnswers, unAnswered and timeremaining to default values
+//loop through the questions from the object variable myQuestions.question
+    //loop through the answer options from the object vairable myQuestions.answers with radio button
+//create a Done button at the end of the set of questions when clicked will call the function timer.
 function startGame(){
     $(".start").remove();
     correctAnswers = 0;
@@ -81,7 +98,6 @@ function startGame(){
     unAnswered = 0;
     timeRemain = 120;
     intervalId = setInterval(timeRemaining, 1000);
-    console.log(timeRemain);
     for(var i=0; i<myQuestions.length; i++){
         question = $("<p style='font-size: 1.5em'>" + myQuestions[i].question + "</p>");
         $("#questions").append(question);
@@ -97,6 +113,8 @@ function startGame(){
    $("#done").on("click",timer);
 }
 
+//function timer will clear the timer and questions
+//And will display All Done! with number of correct answers, in correct answers and un answered questions.
 function timer(){
     clearInterval(intervalId);
     $(".timeRemaining").remove();
@@ -107,6 +125,7 @@ function timer(){
     $(".unAns").append("<h4>Un Answered :" + unAnswered + "</h4>"); 
 
 }
+//startGame function is called when start button is clicked.
 $(".start").on("click", startGame);
 
 });
