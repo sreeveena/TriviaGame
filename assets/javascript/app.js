@@ -63,10 +63,15 @@ var correct;
 var question;
 var option;
 var value;
+var doneButton;
 
 function timeRemaining(){
     $(".timeRemaining").text("Time Remaining :" + timeRemain );
     timeRemain--;
+    if(timeRemain == 0){
+        clearInterval(intervalId);
+        timer();
+    }
 }
 
 function startGame(){
@@ -87,18 +92,21 @@ function startGame(){
           
         }
     }
-   
-   
+   doneButton = $("<br><button id= 'done'> Done </button>");
+   $("#questions").append(doneButton);
+   $("#done").on("click",timer);
 }
 
 function timer(){
-    if(timeRemaining === 0){
-       $(".correctAns").append("<h4>Correct Answers :" + correctAnswers + "</h4>");
-       $(".inCorrectAns").append("<h4> In Correct Answers :" + inCorrectAnswers + "</h4>");
-       $(".unAns").append("<h4>Un Answered :" + unAnswered + "</h4>");
-
-    }
+    clearInterval(intervalId);
+    $(".timeRemaining").remove();
+    $("#questions").remove();
+    $(".done").append("<h4> All Done!</h4>");
+    $(".correctAns").append("<h4>Correct Answers :" + correctAnswers + "</h4>");
+    $(".inCorrectAns").append("<h4> In Correct Answers :" + inCorrectAnswers + "</h4>");
+    $(".unAns").append("<h4>Un Answered :" + unAnswered + "</h4>"); 
 
 }
 $(".start").on("click", startGame);
+
 });

@@ -34,3 +34,11 @@ h1{
 .timeRemaining{
     font-size: 2em;
 }
+#done{
+    background: lightpink;
+    border-color: blue;
+    width: 300px;
+    height: 75px;
+    text-align: center;
+    font-size: 2em;
+}
