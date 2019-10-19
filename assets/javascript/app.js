@@ -4,52 +4,52 @@ $(document).ready(function(){
         {
             question: "In A Bug's Life, the bugs that Flik mistakes for warriors actually worked where?",
             answers: ['The theater', 'The circus', 'The mall', 'The farm'],
-            correctAnswer: '1',
+            correctAnswer: 'The circus',
         },
         {
             question: "In Toy Story 2, what's the name of the 1950s puppet show in which Woody was the star?",
             answers: ['The Woody hour', 'Cowboy hour', 'Woody and the gang', 'Woody roundup'],
-            correctAnswer: '3',
+            correctAnswer: 'Woody roundup',
         },
         {
             question: "When Monsters, Inc. opens up, who's the top scarer at the company?",
             answers: ['Mike', 'Sulley', 'Randall', 'Frank McCay'],
-            correctAnswer: '1',
+            correctAnswer: 'Sulley',
         },
         {
             question: "In The Incredibles, what's Frozone's actual first name?",
             answers: ['Lucas', 'Lewis', 'Lucius', 'Loomis'],
-            correctAnswer: '2',
+            correctAnswer: 'Lucius',
         },
         {
             question: "In Cars, the Piston Cup is being held at what venue?",
             answers: ['Los Angeles International Speedway', 'Daytona International Speedway', 'Texas Motor Speedway', 'Talladega Superspeedway'],
-            correctAnswer: '0',
+            correctAnswer: 'Los Angeles International Speedway',
         },
         {
             question: "In WALL-E, what does EVE visit Earth in search of?",
             answers: ['Oil', 'Plant life', 'Friendship', 'Anything of value'],
-            correctAnswer: '1',
+            correctAnswer: 'Plant life',
         },
         {
             question: "In Up, where is Paradise Falls located?",
             answers: ['Costa Rica', 'Chile', 'Guatemala', 'Venezuela'],
-            correctAnswer: '3',
+            correctAnswer: 'Venezuela',
         },
         {
             question: "Which character doesn't make an appearance in Toy Story 3?",
             answers: ['Slinky', 'Bo Peep', 'Rex', 'Mrs.Potato head'],
-            correctAnswer: '1',
+            correctAnswer: 'Bo Peep',
         },
         {
             question: "In Cars 2, where is the first race of the World Grand Prix held?",
             answers: ['London', 'Hong Kong', 'Tokyo', 'Paris'],
-            correctAnswer: '2',
+            correctAnswer: 'Tokyo',
         },
         {
             question: "What's the name of Monsters University's rival school in Monsters University?",
             answers: ['Fear University', 'Scare Tech', 'Scare State', 'Fear Tech'],
-            correctAnswer: '3',
+            correctAnswer: 'Fear Tech',
         },
 
 
@@ -96,7 +96,8 @@ function startGame(){
     correctAnswers = 0;
     inCorrectAnswers = 0;
     unAnswered = 0;
-    timeRemain = 120;
+    timeRemain = 60;
+    $(".timeRemaining").text("Time Remaining :" + timeRemain );
     intervalId = setInterval(timeRemaining, 1000);
     for(var i=0; i<myQuestions.length; i++){
         question = $("<p style='font-size: 1.5em'>" + myQuestions[i].question + "</p>");
@@ -113,10 +114,27 @@ function startGame(){
    $("#done").on("click",timer);
 }
 
+function results(){
+    for(var i=0; i< myQuestions.length; i++){
+         var radioValue = $("input[name='option"+i+"']:checked").val();
+        console.log(myQuestions[i].correctAnswer);
+        console.log(radioValue);
+         
+        if(typeof radioValue == 'undefined'){
+            unAnswered++;
+       }else if(radioValue == myQuestions[i].correctAnswer){
+        correctAnswers++;
+        } else{
+        inCorrectAnswers++;
+        }
+    }
+}
+
 //function timer will clear the timer and questions
 //And will display All Done! with number of correct answers, in correct answers and un answered questions.
 function timer(){
     clearInterval(intervalId);
+    results();
     $(".timeRemaining").remove();
     $("#questions").remove();
     $(".done").append("<h4> All Done!</h4>");
