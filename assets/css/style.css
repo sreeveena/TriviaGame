@@ -1,7 +1,7 @@
 /* html body dimensions */
 body{
     background: url("../images/pixar.jpg") no-repeat;
-    background-size: 1160px 1060px;
+     background-size: cover; 
 }
 /* main class dimensions with argin, padding and background */
 .main{
@@ -48,4 +48,14 @@ h1{
     height: 75px;
     text-align: center;
     font-size: 2em;
+}
+/* font size for correct answer, incorrect answer and unanswered statements */
+.correctAns{
+    font-size: 1.5em;
+}
+.inCorrectAns{
+    font-size: 1.5em;
+}
+.unAns{
+    font-size: 1.5em;
 }
