@@ -113,12 +113,17 @@ function startGame(){
    $("#questions").append(doneButton);
    $("#done").on("click",timer);
 }
-
+//function will check the value of the radio button selected by the user and compare with the correct answer value
+// loop to go through the questions
+    //check if the radio button is checked and get the value of the radio button
+    // increment the values of unAnswered if value is undefined
+    //increment the value of correctAnswered if selected option value and correct answer is equal
+    //increment the value of inCorrectAnswers if selected option value and correct answer is not equal 
 function results(){
     for(var i=0; i< myQuestions.length; i++){
          var radioValue = $("input[name='option"+i+"']:checked").val();
-        console.log(myQuestions[i].correctAnswer);
-        console.log(radioValue);
+        // console.log(myQuestions[i].correctAnswer);
+        // console.log(radioValue);
          
         if(typeof radioValue == 'undefined'){
             unAnswered++;
