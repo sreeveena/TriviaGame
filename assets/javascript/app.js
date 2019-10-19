@@ -106,7 +106,6 @@ function startGame(){
             option = $("<input type='radio' name='option"+i+"' value= '"+myQuestions[i].answers[j]+"'>");
             value = $( "<p class='answer'>" + myQuestions[i].answers[j] +"</p>");
             $("#questions").append(option, value);
-          
         }
     }
    doneButton = $("<br><button id= 'done'> Done </button>");
