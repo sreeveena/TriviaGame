@@ -106,8 +106,6 @@ function timer(){
 }
 '''
 
-index.html
-
 ![image](https://user-images.githubusercontent.com/7834767/67138081-7a236e00-f1f3-11e9-9565-13b56233846b.png)
 
 
