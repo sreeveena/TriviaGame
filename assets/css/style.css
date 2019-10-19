@@ -14,12 +14,14 @@ body{
     padding: 10px 20px 60px 20px;
 
 }
+/* h1 tag font and color */
 h1{
     font-size: 3.0em;
     color: blue;
     padding-top: 40px;
     
 }
+/* start button color dimensions and alignment */
 .start{
     background: lightpink;
     border-color: blue;
@@ -29,13 +31,16 @@ h1{
     font-size: 2em;
     
 }
+/* display answers */
 .answer{
     display: inline-block;
     
 }
+/* time for the trivia */
 .timeRemaining{
     font-size: 2em;
 }
+/* done button dimensions, color and alignment */
 #done{
     background: lightpink;
     border-color: blue;
