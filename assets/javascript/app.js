@@ -64,8 +64,6 @@ var unAnswered = 0;
 var timeRemain = 120;
 //variable to set the time
 var intervalId;
-//
-var correct;
 //variable question is to generate the question after start button is clicked
 var question;
 //variable option is to generate the radio button options for answers after start button is clicked
